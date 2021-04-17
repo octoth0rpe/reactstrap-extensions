@@ -159,7 +159,7 @@ export const Toggle = ({
       value: option.value
     }
   }),
-  outline: option.value !== value
+  color: option.value === value ? 'info' : 'secondary'
 }, option.label))));
 Toggle.propTypes = { ...INPUT_PROPTYPE,
   ...OPTIONS_PROPTYPE,

@@ -42,7 +42,7 @@ const typedInput = (type) => (props) => {
     };
     return <Input type={type} {...finalProps} />;
   }
-  return <Input type={type} {...props} />; 
+  return <Input type={type} {...props} />;
 };
 
 const withSelectOptions = (Component) => ({ options, ...props }) => {
@@ -205,7 +205,7 @@ export const Toggle = ({ name, options, value, onChange }) => (
         <Button
           key={option.value}
           onClick={() => onChange({ target: { name, value: option.value }})}
-          outline={option.value !== value}
+          color={option.value === value ? 'info' : 'secondary'}
         >
           {option.label}
         </Button>
