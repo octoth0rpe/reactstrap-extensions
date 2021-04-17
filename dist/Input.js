@@ -146,6 +146,25 @@ Select.propTypes = { ...INPUT_PROPTYPE,
   ...OPTIONS_PROPTYPE,
   value: VALUE_PROPTYPE
 };
+export const OutlineToggle = ({
+  name,
+  options,
+  value,
+  onChange
+}) => /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(ButtonGroup, null, Array.isArray(options) && options.map(option => /*#__PURE__*/React.createElement(Button, {
+  key: option.value,
+  onClick: () => onChange({
+    target: {
+      name,
+      value: option.value
+    }
+  }),
+  outline: option.value !== value
+}, option.label))));
+OutlineToggle.propTypes = { ...INPUT_PROPTYPE,
+  ...OPTIONS_PROPTYPE,
+  value: VALUE_PROPTYPE
+};
 export const Toggle = ({
   name,
   options,

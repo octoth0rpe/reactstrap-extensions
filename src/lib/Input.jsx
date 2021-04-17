@@ -42,7 +42,7 @@ const typedInput = (type) => (props) => {
     };
     return <Input type={type} {...finalProps} />;
   }
-  return <Input type={type} {...props} />;
+  return <Input type={type} {...props} />; 
 };
 
 const withSelectOptions = (Component) => ({ options, ...props }) => {
@@ -193,6 +193,27 @@ Textarea.propTypes = {
 
 export const Select = withSelectOptions(typedInput('select'));
 Select.propTypes = {
+  ...INPUT_PROPTYPE,
+  ...OPTIONS_PROPTYPE,
+  value: VALUE_PROPTYPE,
+};
+
+export const OutlineToggle = ({ name, options, value, onChange }) => (
+  <div>
+    <ButtonGroup>
+      {Array.isArray(options) && options.map(option => (
+        <Button
+          key={option.value}
+          onClick={() => onChange({ target: { name, value: option.value }})}
+          outline={option.value !== value}
+        >
+          {option.label}
+        </Button>
+      ))}
+    </ButtonGroup>
+  </div>
+);
+OutlineToggle.propTypes = {
   ...INPUT_PROPTYPE,
   ...OPTIONS_PROPTYPE,
   value: VALUE_PROPTYPE,
