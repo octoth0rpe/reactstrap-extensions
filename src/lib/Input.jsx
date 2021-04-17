@@ -42,7 +42,7 @@ const typedInput = (type) => (props) => {
     };
     return <Input type={type} {...finalProps} />;
   }
-  return <Input type={type} {...props} />; 
+  return <Input type={type} {...props} />;
 };
 
 const withSelectOptions = (Component) => ({ options, ...props }) => {
